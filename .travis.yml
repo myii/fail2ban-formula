@@ -35,6 +35,9 @@ jobs:
       name: 'Lint: salt-lint, yamllint, rubocop & commitlint'
       before_install: 'skip'
       script:
+        # Run `shellcheck`
+        - git ls-files | grep '\.sh$\|\.bash$\|\.ksh$'
+                       | xargs shellcheck
         # Install and run `salt-lint`
         - pip install --user salt-lint
         - git ls-files | grep '\.sls$\|\.jinja$\|\.j2$\|\.tmpl$\|\.tst$'
