@@ -12,6 +12,11 @@ include:
     - context:
         config:
             Definition: {{ fail2ban.config|yaml }}
+  cmd.run:
+    - name: |
+        cat {{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local
+    - require:
+      - file: {{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local
 {% else %}
   file.absent:
 {% endif %}
@@ -25,6 +30,11 @@ include:
     - template: jinja
     - context:
         config: {{ fail2ban.jails|yaml }}
+  cmd.run:
+    - name: |
+        cat {{ fail2ban.prefix }}/etc/fail2ban/jail.local
+    - require:
+      - file: {{ fail2ban.prefix }}/etc/fail2ban/jail.local
 {% else %}
   file.absent:
 {% endif %}
@@ -40,6 +50,11 @@ include:
       - service: {{ fail2ban.service }}
     - context:
         config: {{ config|yaml }}
+  cmd.run:
+    - name: |
+        cat {{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.local
+    - require:
+      - file: {{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.local
 {% endfor %}
 
 {% for name, config in fail2ban.filters|dictsort %}
@@ -51,5 +66,10 @@ include:
       - service: {{ fail2ban.service }}
     - context:
         config: {{ config|yaml }}
+  cmd.run:
+    - name: |
+        cat {{ fail2ban.prefix }}/etc/fail2ban/filter.d/{{ name }}.local
+    - require:
+      - file: {{ fail2ban.prefix }}/etc/fail2ban/filter.d/{{ name }}.local
 {% endfor %}
 
