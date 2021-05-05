@@ -1,0 +1,155 @@
+= fail2ban-formula
+
+https://travis-ci.com/saltstack-formulas/fail2ban-formula[image:https://travis-ci.com/saltstack-formulas/fail2ban-formula.svg?branch=master[Travis CI Build Status]]
+https://github.com/semantic-release/semantic-release[image:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg[Semantic Release]]
+
+`fail2ban` scans log files for malicious activity and executes actions
+based on what it finds.
+
+[width="100%",cols="100%",options="header",]
+|=======================================================================
+|WARNING: BREAKING CHANGES SINCE `v1.0.0`
+a|
+Prior to
+https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0[v1.0.0],
+this formula provided two methods for managing Fail2Ban; the old method
+under `fail2ban` and the new method under `fail2ban.ng`. The old method
+has now been removed and `fail2ban.ng` has been promoted to be
+`fail2ban` in its place.
+
+If you are not in a position to migrate, please pin your repo to the
+final release tag before
+https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0[v1.0.0],
+i.e.
+https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.17.2[v0.17.2].
+
+To migrate from `fail2ban.ng`, simply modify your pillar to promote the
+entire section under `fail2ban:ng` so that it is under `fail2ban`
+instead. So with the editor of your choice, highlight the entire section
+and then unindent one level. Finish by removing the `ng:` line.
+
+To migrate from the old `fail2ban`, first convert to `fail2ban.ng` under
+https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.17.2[v0.17.2].
+and then follow the steps laid out in the paragraph directly above.
+
+|=======================================================================
+
+== General notes
+
+See the full
+https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html[SaltStack
+Formulas installation and usage instructions].
+
+If you are interested in writing or contributing to formulas, please pay
+attention to the
+https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#writing-formulas[Writing
+Formula Section].
+
+If you want to use this formula, please pay attention to the `FORMULA`
+file and/or `git tag`, which contains the currently released version.
+This formula is versioned according to http://semver.org/[Semantic
+Versioning].
+
+See
+https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning[Formula
+Versioning Section] for more details.
+
+== Contributing to this repo
+
+*Commit message formatting is significant!!*
+
+Please see
+xref:main::CONTRIBUTING.adoc[How
+to contribute] for more details.
+
+== Available states
+
+=== `fail2ban`
+
+Meta state for inclusion of all states.
+
+=== `fail2ban.install`
+
+Install the `fail2ban` package.
+
+=== `fail2ban.config`
+
+Configure fail2ban creating a `jail.local` file based on pillar data
+that overrid `jail.conf`. It also creates a `file.local` per
+action/filter. Either in jails, actions or filters is possible to setup
+a `source_path` options to upload your configuration directly (see
+`pillar.example`). It is also possible to remove either actions or
+filters setting up `enabled: False` in it section (see
+`pillar.example`).
+
+It is also possible to specify the source file for config, jails,
+actions and filters instead of using the template:
+
+[source,yaml]
+----
+fail2ban:
+ config:
+   source_path: salt://path-to-fail2ban-config-file
+ jails:
+   source_path: salt://path-to-fail2ban-config-file
+ actions:
+   name-of-action:
+     config:
+       source_path: salt://path-to-action-file
+ filters:
+   name-of-filter:
+     config:
+       source_path: salt://path-to-filter-file
+----
+
+=== `fail2ban.service`
+
+Manage fail2ban service. It is also possible to disable the service
+using the following pillar configuration:
+
+[source,yaml]
+----
+fail2ban:
+  enabled: false
+----
+
+== Testing
+
+Linux testing is done with `kitchen-salt`.
+
+=== Requirements
+
+* Ruby
+* Docker
+
+[source,bash]
+----
+$ gem install bundler
+$ bundle install
+$ bin/kitchen test [platform]
+----
+
+Where `[platform]` is the platform name defined in `kitchen.yml`, e.g.
+`debian-9-2019-2-py3`.
+
+=== `bin/kitchen converge`
+
+Creates the docker instance and runs the `fail2ban` main state, ready
+for testing.
+
+=== `bin/kitchen verify`
+
+Runs the `inspec` tests on the actual instance.
+
+=== `bin/kitchen destroy`
+
+Removes the docker instance.
+
+=== `bin/kitchen test`
+
+Runs all of the stages above in one go: i.e. `destroy` + `converge` +
+`verify` + `destroy`.
+
+=== `bin/kitchen login`
+
+Gives you SSH access to the instance for manual testing.

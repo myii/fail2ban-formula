@@ -1,0 +1,228 @@
+= Changelog
+
+:sectnums!:
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.1.1...v1.1.2++[1.1.2^] (2020-11-16)
+
+=== Continuous Integration
+
+* *pre-commit:* add to formula [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/feb333d59ca02223b1db94960c85400205a8d1aa[feb333d^])
+* *pre-commit:* enable/disable `rstcheck` as relevant [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/57e665964c30b047c4735fa4b120b45a9daf03fb[57e6659^])
+* *pre-commit:* finalise `rstcheck` configuration [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/24ab8f7ce755dc981cc6fe3ce4654accc41b2145[24ab8f7^])
+
+=== Documentation
+
+* *readme:* fix ng example
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/f5d23a5d895693b174af6bc76ce32828f7fadd2d[f5d23a5^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.1.0...v1.1.1++[1.1.1^] (2020-09-03)
+
+=== Bug Fixes
+
+* *mapping:* use default wheel group in freebsd
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/630b13f6b3e8a69a0bf4240460ce24855a055a77[630b13f^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.1...v1.1.0++[1.1.0^] (2020-09-01)
+
+=== Continuous Integration
+
+* *kitchen:* use `saltimages` Docker Hub where available [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/671d596e4e76148b631fa5e641fbd5a2b29f7113[671d596^])
+* *travis:* add notifications => zulip [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/f71aea9c1989e33cde834cde14869856cbc0a81b[f71aea9^])
+
+=== Features
+
+* *freebsd:* upgrade to supported python 3 version
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/06ff9fb9902b13f55a9042d59565337b135bcc41[06ff9fb^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.0...v1.0.1++[1.0.1^] (2020-05-04)
+
+=== Bug Fixes
+
+* *config:* add jails config filename also to fallback file.absent
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/167a0d60664328a925cf80862e2c402a63f2997f[167a0d6^])
+
+=== Continuous Integration
+
+* *gemfile.lock:* add to repo with updated `Gemfile` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/1604f1ea52c28cc5e61630587d1648b124bda859[1604f1e^])
+* *kitchen:* avoid using bootstrap for `master` instances [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/9ae8e0946efa6be827e1013935b74c32b4066c26[9ae8e09^])
+* *kitchen+travis:* remove `master-py2-arch-base-latest` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/4c957f0ec1e3ab14d01ed2c1f7d068a46edb3162[4c957f0^])
+* *workflows/commitlint:* add to repo [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/6f3a950e9b5b742719ff01e12a45a5d2fe72cf57[6f3a950^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.2...v1.0.0++[1.0.0^] (2020-01-13)
+
+=== Features
+
+* promote `ng`
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/fb1ae56f460f2cabdf0f7b9b0bccdde309d698ca[fb1ae56^]),
+closes
+https://github.com/saltstack-formulas/fail2ban-formula/issues/34[#34^]
+https://github.com/saltstack-formulas/fail2ban-formula/issues/35[#35^]
+
+=== BREAKING CHANGES
+
+* all previous `fail2ban` based configurations must be reviewed;
+`fail2ban.ng` usage must be promoted to `fail2ban` and any uses of the
+original `fail2ban` will have to be converted.
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.1...v0.17.2++[0.17.2^] (2020-01-10)
+
+=== Bug Fixes
+
+* *ng/map.jinja:* use `ng:lookup` rather than `lookup`
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/cb76484142d192dc3c0f2903231b97793e5b216e[cb76484^])
+
+=== Continuous Integration
+
+* *kitchen:* use `fail2ban.ng` in `state_top`
+(https://github.com/saltstack-formulas/fail2ban-formula/issues/35[#35^])
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/10b403f8b445f65118e88872229a978cdae90a4c[10b403f^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.0...v0.17.1++[0.17.1^] (2020-01-10)
+
+=== Bug Fixes
+
+* *pillar.example:* declare ignoreip (whitelist) in jail section (ng)
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/00661cbca978e5b6344427bd688fcfae9789f3db[00661cb^])
+
+=== Continuous Integration
+
+* *gemfile:* restrict `train` gem version until upstream fix [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/4a10cd695764fb551aea91688625576dbb046ba9[4a10cd6^])
+* *travis:* quote pathspecs used with `git ls-files` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/b4affadfd7f1227aea0dc96101e560553af12c8a[b4affad^])
+* *travis:* use `major.minor` for `semantic-release` version [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/d41fe3f2051e2f63dbae9cfd343103f5b3228dc0[d41fe3f^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.3...v0.17.0++[0.17.0^] (2019-11-27)
+
+=== Bug Fixes
+
+* *release.config.js:* use full commit hash in commit link [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/37439c81a79428a3ea66fcba0ea9f389daf78caa[37439c8^])
+
+=== Continuous Integration
+
+* *kitchen:* use `debian-10-master-py3` instead of `develop` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/14629b96f38e79143899944f0ec2508171d196c8[14629b9^])
+* *kitchen:* use `develop` image until `master` is ready (`amazonlinux`)
+ [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/6652ff9d9563bc5454e48b16ccdea579100ff3f3[6652ff9^])
+* *kitchen+travis:* upgrade matrix after `2019.2.2` release [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/9968b09784e4b2d3e9e5055b9f7dce6306d5eb80[9968b09^])
+* *travis:* apply changes from build config validation [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/885c517e8a17b54d2966e475919f10378f7b99e9[885c517^])
+* *travis:* opt-in to `dpl v2` to complete build config validation [skip
+ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/5112d760e403fe8e9e56324445fab75a669e81c7[5112d76^])
+* *travis:* run `shellcheck` during lint job
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/527cf1e9717964d794356b1dbbad0037356773fe[527cf1e^])
+* *travis:* update `salt-lint` config for `v0.0.10` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/52eb62c8f9e8703889f8c9d97f68df794e4a644c[52eb62c^])
+* *travis:* use build config validation (beta) [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/2ae5e8cc167d9596bb07d094cf7dae2e7655a77f[2ae5e8c^])
+
+=== Documentation
+
+* *contributing:* remove to use org-level file instead [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/2688f64efb58ef9091fdc56328ec6ad303727fcc[2688f64^])
+* *readme:* update link to `CONTRIBUTING` [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/37c0dd1fcdfd8bfb424490a7b680d0fc04150261[37c0dd1^])
+
+=== Features
+
+* update deprecation version number in `semantic-release` run
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/11d748abd67f1603b99a7804436d7ad6970d3411[11d748a^])
+* *deprecated.sls:* prepare warning state for `ng` promotion
+(https://github.com/saltstack-formulas/fail2ban-formula/issues/35[#35^])
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/4c702bc5a57b55abe8bdcc5096d5aa9a04233bb5[4c702bc^])
+* *deprecation:* include `ng` promotion warning to all state files
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/4348b5966240878ec3959dfaa661e696384ca833[4348b59^])
+
+=== Performance Improvements
+
+* *travis:* improve `salt-lint` invocation [skip ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/5a14047dae331c973e3a0f7384c5f1e135604e8f[5a14047^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.2...v0.16.3++[0.16.3^] (2019-10-11)
+
+=== Bug Fixes
+
+* *rubocop:* add fixes using `rubocop --safe-auto-correct`
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/0a420da[0a420da^])
+
+=== Continuous Integration
+
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/269a220[269a220^])
+* *travis:* merge `rubocop` linter into main `lint` job
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/19f6faa[19f6faa^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.1...v0.16.2++[0.16.2^] (2019-10-09)
+
+=== Bug Fixes
+
+* *config.jinja:* fix `salt-lint` errors
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/ddbac67[ddbac67^])
+* *config.sls:* fix `salt-lint` errors
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/0f668ca[0f668ca^])
+
+=== Continuous Integration
+
+* *kitchen:* change `log_level` to `debug` instead of `info`
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/44247c1[44247c1^])
+* *kitchen:* install required packages to bootstrapped `opensuse` [skip
+ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/410f589[410f589^])
+* *kitchen:* use bootstrapped `opensuse` images until `2019.2.2` [skip
+ci]
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/e8ffbb6[e8ffbb6^])
+* *kitchen+travis:* replace EOL pre-salted images
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/f33c864[f33c864^])
+* *platform:* add `arch-base-latest`
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/ab09eda[ab09eda^])
+* *yamllint:* add rule `empty-values` & use new `yaml-files` setting
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/e592919[e592919^])
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/3b1c31a[3b1c31a^])
+* use `dist: bionic` & apply `opensuse-leap-15` SCP error workaround
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/2ca74f9[2ca74f9^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.0...v0.16.1++[0.16.1^] (2019-08-25)
+
+=== Documentation
+
+* *readme:* update testing section
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/3ae625f[3ae625f^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.15.0...v0.16.0++[0.16.0^] (2019-08-10)
+
+=== Continuous Integration
+
+* *kitchen+travis:* modify matrix to include `develop` platform
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/4af0301[4af0301^])
+
+=== Features
+
+* *yamllint:* include for this repo and apply rules throughout
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/ee23eaf[ee23eaf^])
+
+== link:++https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.14.0...v0.15.0++[0.15.0^] (2019-05-18)
+
+=== Continuous Integration
+
+* *travis:* enabling only 5 builds for Salt 2019.2 on py3
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/d588774[d588774^])
+
+=== Features
+
+* implement an automated changelog
+(https://github.com/saltstack-formulas/fail2ban-formula/commit/9ab601c[9ab601c^])
